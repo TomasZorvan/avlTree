@@ -24,51 +24,51 @@ There are two classes:
 ### Class AVLNode
 AVLNode represents generic node of the AVL tree. If you want to create your own custom node that will be working fine with the AVL tree you need to extend this class the following way:
 
-    ```java
-        public class MyAwesomeCustomNode extends AVLNode<MyAwesomeCustomNode> {
+```java
+    public class MyAwesomeCustomNode extends AVLNode<MyAwesomeCustomNode> {
 
-            @Override
-            public int compareTo(MyAwesomeCustomNode o) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public String toString() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public int getValue() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
+        @Override
+        public int compareTo(MyAwesomeCustomNode o) {
+            throw new UnsupportedOperationException("Not supported yet.");
         }
-    ```
+
+        @Override
+        public String toString() {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+
+        @Override
+        public int getValue() {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+    }
+```
 
 You need to override all abstract methods. Method getValue() is present only for testing purposes. Pay attention especially to **compareTo** method where object comparison needs to be done.
 To be able to insert node to AVL tree each object must have some kind of unique identifier which can be compared so that the decision if node is inserted in left or right subtree can be made.
 
 See example below:
 
-    ```java
-        public class Customer extends AVLNode<Customer> {
-            private long idNumber;
-            
-            @Override
-            public int compareTo(Customer c) {
-                if (this.getIdNumber() < c.getIdNumber()) {
-                    return -1;
-                } else if (this.getIdNumber() > c.getIdNumber()) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-            
-            public long getIdNumber() {
-                return idNumber;
+```java
+    public class Customer extends AVLNode<Customer> {
+        private long idNumber;
+        
+        @Override
+        public int compareTo(Customer c) {
+            if (this.getIdNumber() < c.getIdNumber()) {
+                return -1;
+            } else if (this.getIdNumber() > c.getIdNumber()) {
+                return 1;
+            } else {
+                return 0;
             }
         }
-    ```
+        
+        public long getIdNumber() {
+            return idNumber;
+        }
+    }
+```
 
 ### Class AVLTree
 This class represents standalone AVLTree as a data structure. All necessary operations can be found here for further modification.
