@@ -24,7 +24,7 @@ There are two classes:
 ### Class AVLNode
 AVLNode represents generic node of the AVL tree. If you want to create your own custom node that will be working fine with the AVL tree you need to extend this class the following way:
 
-    ``` java
+    ```java
         public class MyAwesomeCustomNode extends AVLNode<MyAwesomeCustomNode> {
 
             @Override
@@ -49,7 +49,7 @@ To be able to insert node to AVL tree each object must have some kind of unique 
 
 See example below:
 
-    ``` java
+    ```java
         public class Customer extends AVLNode<Customer> {
             private long idNumber;
             
